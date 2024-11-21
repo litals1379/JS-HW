@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            margin-top: 10px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Point Operations</h1>
+
+    <!-- טופס להוספת נקודה -->
+    <h2>Add Point</h2>
+    <label for="x">X Coordinate:</label>
+    <input type="number" id="x" required>
+    <label for="y">Y Coordinate:</label>
+    <input type="number" id="y" required>
+    <button onclick="addPoint()">Add Point</button>
+
+    <h2>Points List</h2>
+    <ul id="pointsList"></ul>
+
+    <!-- טופס לבדיקת קיום נקודה -->
+    <h2>Check if Point Exists</h2>
+    <label for="checkX">X Coordinate:</label>
+    <input type="number" id="checkX" required>
+    <label for="checkY">Y Coordinate:</label>
+    <input type="number" id="checkY" required>
+    <button onclick="checkPoint()">Check Point</button>
+    <div id="checkResult" class="result"></div>
+
+    <!-- טופס לחישוב מרחק -->
+    <h2>Calculate Distance</h2>
+    <label for="point1Index">Point 1 Index:</label>
+    <input type="number" id="point1Index" required>
+    <label for="point2Index">Point 2 Index:</label>
+    <input type="number" id="point2Index" required>
+    <button onclick="calculateDistanceHTML()">Calculate Distance</button>
+    <div id="distanceResult" class="result"></div>
+
+    <script src="point.js"></script>
+</body>
+</html>
