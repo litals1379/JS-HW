@@ -17,8 +17,9 @@ class Point {
     }
 
     Equals(p) {
-        return this._x === p.x && this._y === p.y;
+        return this.X === p.X && this.Y === p.Y;
     }
+    
 }
 
 const points = [];
@@ -59,6 +60,15 @@ function checkPoint() {
 }
 
 function pointExists(points, x, y) {
+    for (let i = 0; i < points.length; i++) {
+        if (points[i].X === x && points[i].Y === y) {
+            return true;
+        }
+    }
+    return false;
+}
+//צריך לתקן
+function pointExists2(points, x, y) {
     const targetPoint = new Point(x, y);
     for (let i = 0; i < points.length; i++) {
         if (points[i].Equals(targetPoint)) {
@@ -68,33 +78,30 @@ function pointExists(points, x, y) {
     return false;
 }
 
-// חישוב מרחק בין שתי נקודות
-function calculateDistanceHTML() {
-    const point1Index = parseInt(document.getElementById("point1Index").value);
-    const point2Index = parseInt(document.getElementById("point2Index").value);
 
-    if (
-        !isNaN(point1Index) &&
-        !isNaN(point2Index) &&
-        point1Index >= 0 &&
-        point1Index < points.length &&
-        point2Index >= 0 &&
-        point2Index < points.length
-    ) {
-        const point1 = points[point1Index];
-        const point2 = points[point2Index];
-        const distance = calculateDistance(point1, point2);
+
+// חישוב מרחק בין שתי נקודות מתוך ערכים ישירים של X ו-Y
+function calculateDistanceFromValues() {
+    const x1 = parseFloat(document.getElementById("x1").value);
+    const y1 = parseFloat(document.getElementById("y1").value);
+    const x2 = parseFloat(document.getElementById("x2").value);
+    const y2 = parseFloat(document.getElementById("y2").value);
+
+    if (!isNaN(x1) && !isNaN(y1) && !isNaN(x2) && !isNaN(y2)) {
+        const distance = calculateDistance(x1, y1, x2, y2);
 
         const result = document.getElementById("distanceResult");
         result.textContent = `Distance: ${distance.toFixed(2)}`;
     } else {
-        alert("Please enter valid indices for the points.");
+        alert("Please enter valid coordinates for both points.");
     }
 }
 
-function calculateDistance(point1, point2) {
-    const dx = point1.x - point2.x;
-    const dy = point1.y - point2.y;
+// חישוב המרחק בין שתי נקודות
+function calculateDistance(x1, y1, x2, y2) {
+    const dx = x1 - x2;
+    const dy = y1 - y2;
     return Math.sqrt(dx * dx + dy * dy);
 }
+
 
