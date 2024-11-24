@@ -4,22 +4,14 @@ class Point {
         this._y = y;
     }
 
-    get x() {
-        return this._x;
-    }
+    get X() {return this._x;}
 
-    set x(value) {
-        this._x = value;
-    }
+    set X(value) {this._x = value;}
 
-    get y() {
-        return this._y;
-    }
-
-    set y(value) {
-        this._y = value;
-    }
-
+    get Y() {return this._y;}
+ 
+    set Y(value) {this._y = value;}
+  
     Show() {
         return `(${this._x}, ${this._y})`;
     }
