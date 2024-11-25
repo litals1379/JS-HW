@@ -67,9 +67,21 @@ function pointExists(points, x, y) {
     }
     return false;
 }
-//צריך לתקן
-function pointExists2(points, x, y) {
+// בדיקת קיום נקודה במערך equal
+function checkPoint_Equal() {
+    const x = parseFloat(document.getElementById("checkX_equal").value);
+    const y = parseFloat(document.getElementById("checkY_equal").value);
     const targetPoint = new Point(x, y);
+    if (!isNaN(x) && !isNaN(y)) {
+        const exists = pointExists_Equal(points,targetPoint);
+        const result = document.getElementById("checkResult_equal");
+        result.textContent = exists ? "Point exists in the array." : "Point does not exist in the array.";
+    } else {
+        alert("Please enter valid coordinates.");
+    }
+}
+
+function pointExists_Equal(points,targetPoint) {
     for (let i = 0; i < points.length; i++) {
         if (points[i].Equals(targetPoint)) {
             return true;
