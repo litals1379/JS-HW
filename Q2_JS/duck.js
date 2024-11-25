@@ -33,10 +33,11 @@ class Duck {
 
     Quack() {
         const quackCount = Math.floor((this.age * this.weight) / 2);
+        const soundCount = 3;
         const quackSound = new Audio("quack.wav");
     
         // פונקציה לנגן את הצליל מספר פעמים
-        for (let i = 0; i <= quackCount; i++) {
+        for (let i = 0; i < soundCount; i++) {
             setTimeout(() => {
                 quackSound.play();
             }, i * 500); // השהייה של 500ms בין כל "quack"
@@ -77,7 +78,13 @@ document.getElementById("btn_duck").onclick = function () {
 
 
 document.getElementById("btn_show").onclick = function () {
-    document.getElementById("output").innerHTML = window.duck.Show();
+    let output = document.getElementById("output");
+    if (output.innerHTML === window.duck.Show()) {
+        output.innerHTML = "";
+    }
+    else {
+        output.innerHTML = window.duck.Show();
+    }
 };
 
 document.getElementById("btn_quack").onclick = function () {
