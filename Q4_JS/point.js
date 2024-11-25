@@ -117,3 +117,40 @@ function calculateDistance(x1, y1, x2, y2) {
     return Math.sqrt(dx * dx + dy * dy);
 }
 
+// דוגמאות לשימוש
+function runExamples() {
+    console.log("Starting examples...");
+
+    const point1 = new Point(0, 0);  
+    const point2 = new Point(3, 0);  
+    const point3 = new Point(3, 4);  
+    const point4 = new Point(0, 4);  
+
+    points.push(point1, point2, point3, point4);
+    console.log("Points added:", points.map(p => p.Show()));
+
+    // בדיקת קיום נקודה
+    console.log("Checking if (3, 4) exists:", pointExists(points, 3, 4));
+    console.log("Checking if (5, 5) exists:", pointExists(points, 5, 5));
+
+    // בדיקה עם Equals
+    const checkPoint = new Point(3, 4);
+    console.log("Checking with Equals if (3, 4) exists:", pointExists_Equal(points, checkPoint));
+    console.log("Checking with Equals if (5, 5) exists:", pointExists_Equal(points, checkPoint));
+
+    // חישוב אורך המסלול
+    updatePathLength();
+    // הצגת רשימת הנקודות ואורך המסלול בעמוד
+    const pathLengthElement = document.getElementById("pathLength");
+    const pointsList = points.map(p => p.Show()).join(" -> ");
+    pathLengthElement.textContent = `Path: ${pointsList} | Total Length: ${pathLengthElement.textContent}`;
+
+    // הדפסה בקונסולה
+    console.log(`Path: ${pointsList}`);
+    console.log(`Total path length: ${pathLengthElement.textContent}`);
+}
+
+
+
+// קריאה לדוגמאות
+runExamples();
