@@ -2,36 +2,45 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     line-height: 1.6;
     color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
 }
+
 h1 {
     color: #2e7d32;
     font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
 }
-h2 {
-    font-size: 1.5rem;
+
+h3 {
+    font-size: 1.2rem;
     color: #333;
     margin-bottom: 10px;
 }
+
 label {
     display: inline-block;
-    width: 150px;
+    width: 50px;
     margin: 5px 0;
     font-weight: bold;
 }
 
 input[type="number"] {
-    width: 200px;
+    width: calc(100% - 70px);
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 button {
+    width: 100%;
     padding: 8px 16px;
     color: white;
     background-color: #2e7d32;
@@ -43,8 +52,9 @@ button {
 }
 
 button:hover {
-    background-color: #2e7d32;
+    background-color: #1b5e20;
 }
+
 .result {
     margin-top: 10px;
     padding: 10px;
@@ -54,6 +64,7 @@ button:hover {
     font-weight: bold;
     border: 1px solid #c8e6c9;
 }
+
 ul#pointsList {
     list-style-type: square;
     margin-top: 10px;
@@ -65,18 +76,18 @@ ul#pointsList li {
     font-size: 1rem;
     color: #555;
 }
-form, div {
-    margin-bottom: 20px;
-    padding: 10px;
+
+form {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-}
+
 footer {
     margin-top: 20px;
     text-align: center;

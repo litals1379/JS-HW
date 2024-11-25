@@ -8,48 +8,35 @@
    
 </head>
 <body>
-    <h1>Point Operations</h1>
+    <form>
+        <h1>Point Operations</h1>
 
-    <!-- טופס להוספת נקודה -->
-    <h2>Add Point</h2>
-    <label for="x">X Coordinate:</label>
-    <input type="number" id="x" required>
-    <label for="y">Y Coordinate:</label>
-    <input type="number" id="y" required>
-    <button onclick="addPoint()">Add Point</button>
+        <!-- Add Point Section -->
+        <h2>Add Point</h2>
+        <label for="x">X:</label>
+        <input type="number" id="x" required>
+        <label for="y">Y:</label>
+        <input type="number" id="y" required>
+        <button type="button" onclick="addPoint()">Add Point</button>
 
-    <h2>Points List</h2>
-    <ul id="pointsList"></ul>
+        <h2>Points List</h2>
+        <ul id="pointsList"></ul>
 
-    <!-- טופס לבדיקת קיום נקודה -->
-    <h2>Check if Point Exists</h2>
-    <label for="checkX">X Coordinate:</label>
-    <input type="number" id="checkX" required>
-    <label for="checkY">Y Coordinate:</label>
-    <input type="number" id="checkY" required>
-    <button onclick="checkPoint()">Check Point</button>
-    <div id="checkResult" class="result"></div>
+        <!-- Check Point Section -->
+        <h2>Check if Point Exists</h2>
+        <label for="checkX">X:</label>
+        <input type="number" id="checkX" required>
+        <label for="checkY">Y:</label>
+        <input type="number" id="checkY" required>
+        <button type="button" onclick="checkPoint()">Check Point</button>
+        <div id="checkResult" class="result"></div>
 
-   <!-- טופס לחישוב מרחק -->
-   <h2>Calculate Distance</h2>
-
-   <!-- קלט לנקודה הראשונה -->
-   <label for="x1">Point 1 X:</label>
-   <input type="number" id="x1" required>
-   <label for="y1">Point 1 Y:</label>
-   <input type="number" id="y1" required>
-   <br>
-   <!-- קלט לנקודה השנייה -->
-   <label for="x2">Point 2 X:</label>
-   <input type="number" id="x2" required>
-   <label for="y2">Point 2 Y:</label>
-   <input type="number" id="y2" required>
-   <br>
-   <button onclick="calculateDistanceFromValues()">Calculate Distance</button>
-   
-   <div id="distanceResult" class="result"></div>
-   
-
+        <!-- Calculate Path Length -->
+        <h2>Path Length</h2>
+        <button type="button" id="btn_path_length">Calculate Path Length</button>
+        <div id="pathLength">0</div>
+    </form>
+    
     <script src="point.js"></script>
 </body>
 </html>

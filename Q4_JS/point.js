@@ -78,30 +78,30 @@ function pointExists2(points, x, y) {
     return false;
 }
 
-
-
-// חישוב מרחק בין שתי נקודות מתוך ערכים ישירים של X ו-Y
-function calculateDistanceFromValues() {
-    const x1 = parseFloat(document.getElementById("x1").value);
-    const y1 = parseFloat(document.getElementById("y1").value);
-    const x2 = parseFloat(document.getElementById("x2").value);
-    const y2 = parseFloat(document.getElementById("y2").value);
-
-    if (!isNaN(x1) && !isNaN(y1) && !isNaN(x2) && !isNaN(y2)) {
-        const distance = calculateDistance(x1, y1, x2, y2);
-
-        const result = document.getElementById("distanceResult");
-        result.textContent = `Distance: ${distance.toFixed(2)}`;
-    } else {
-        alert("Please enter valid coordinates for both points.");
-    }
+document.getElementById("btn_path_length").onclick = function(){
+    updatePathLength();
 }
 
-// חישוב המרחק בין שתי נקודות
+// Update the total path length
+function updatePathLength() {
+    let totalDistance = 0;
+    for (let i = 0; i < points.length - 1; i++) {
+        const x1 = points[i].X;
+        const y1 = points[i].Y;
+        const x2 = points[i + 1].X;
+        const y2 = points[i + 1].Y;
+        totalDistance += calculateDistance(x1, y1, x2, y2);
+    }
+
+    // עדכון התוצאה בדף
+    document.getElementById("pathLength").textContent = totalDistance.toFixed(2);
+}
+
+
+// Function to calculate the distance between two points
 function calculateDistance(x1, y1, x2, y2) {
-    const dx = x1 - x2;
-    const dy = y1 - y2;
+    const dx = x2 - x1;
+    const dy = y2 - y1;
     return Math.sqrt(dx * dx + dy * dy);
 }
-
 
