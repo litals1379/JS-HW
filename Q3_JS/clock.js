@@ -31,11 +31,41 @@ class Clock {
     }
 }
 
+function emptyValues() {
+    document.getElementById("inp_hour").value = "";
+    document.getElementById("inp_hour").placeholder = "Enter an hour";
+    document.getElementById("inp_minute").value = "";
+    document.getElementById("inp_minute").placeholder = "Enter a minute";
+    document.getElementById("inp_second").value = "";
+    document.getElementById("inp_second").placeholder = "Enter a second";
+    document.getElementById("inp_country_name").value = "";
+    document.getElementById("inp_country_name").placeholder = "Enter Country Name";
+}
+
 document.getElementById("btn_clock").onclick = function () {
     const hour = parseInt(document.getElementById("inp_hour").value, 10);
     const minute = parseInt(document.getElementById("inp_minute").value, 10);
     const second = parseInt(document.getElementById("inp_second").value, 10);
     const country_name = document.getElementById("inp_country_name").value;
+
+    if (isNaN(hour) || hour < 0 || hour > 23) {
+        alert("Please enter a valid hour between 0 and 23.");
+        return;
+    }
+    if (isNaN(minute) || minute < 0 || minute > 59) {
+        alert("Please enter a valid minute between 0 and 59.");
+        return;
+    }
+    if (isNaN(second) || second < 0 || second > 59) {
+        alert("Please enter a valid second between 0 and 59.");
+        return;
+    }
+    if (!country_name.trim()) {
+        alert("Please enter a country name.");
+        return;
+    }
+
+    emptyValues();
 
     if (!window.clocks) {
         window.clocks = [];
@@ -48,12 +78,11 @@ document.getElementById("btn_clock").onclick = function () {
 
     // אם יש מעל 4 שעונים, מציג את התוצאות
     if (window.clocks.length > 4) {
-        const lastClock = window.clocks[window.clocks.length - 1];
         const output = document.getElementById("output");
 
-        output.innerHTML = `
-            ${lastClock.Show()}<br>
-            ${lastClock.ConverToSeconds()}
-        `;
+        clocks.forEach((clock) => {
+            output.innerHTML += `${clock.Show()}<br />${clock.ConverToSeconds()}<br />`;
+        });
+
     }
 };
